@@ -33,3 +33,8 @@ async def calc(operator, x:int|float, y:int|float):
             'x':x,
             'y':y,
             'result':result}
+
+
+@app.get('/lightswitch/{state}')
+async def lightswitch(state:bool):
+    return {'new_state':state}
