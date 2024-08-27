@@ -97,3 +97,5 @@ async def get_person(person_id:int):
                         'first_name':first_name,
                         'last_name':last_name,
                         'shoe_size':shoe_size}
+            else:
+                raise HTTPException(status_code=404, detail=f'No person with ID {id_number} in the database')
