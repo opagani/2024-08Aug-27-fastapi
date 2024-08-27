@@ -43,7 +43,7 @@ async def lightswitch(state:bool):
 class Person(BaseModel):
     first_name: str = Field(min_length=1, max_length=15)
     last_name: str = Field(min_length=1, max_length=15)
-    shoe_size: int = Field(gt=1, lt=55)
+    shoe_size: int = Field(gt=1, lt=56)
 
 @app.post('/greet_person')
 async def greet_person(person:Person):
