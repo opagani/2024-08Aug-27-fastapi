@@ -53,7 +53,7 @@ async def greet_person(person:Person):
 
 
 class MathProblem(BaseModel):
-    operator:str
+    operator:str = Field(pattern='^[+*]$')
     x:int = Field(ge=0, lt=100000)
     y:int = Field(ge=0, lt=100000)
 
