@@ -14,7 +14,7 @@ async def hello(name):      # we'll get name defined based on the URL, thanks to
     return {'message':f'Hello out there, {name}!'}
 
 @app.get('/greeting/{name}')  # we'll have one path parameter, name
-async def hello(name, x=3, y=4):  # we have two query parameters, x and y
+async def hello(name, x=None, y=None):  # we have two query parameters, x and y
     return {'message':f'Hello out there, {name}!',
             'x':x,
             'y':y,
