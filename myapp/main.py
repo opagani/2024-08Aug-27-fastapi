@@ -54,8 +54,8 @@ async def greet_person(person:Person):
 
 class MathProblem(BaseModel):
     operator:str
-    x:int
-    y:int
+    x:int = Field(ge=0, lt=100000)
+    y:int = Field(ge=0, lt=100000)
 
 
 @app.post('/newcalc')
