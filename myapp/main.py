@@ -9,6 +9,6 @@ app = FastAPI()
 # (1) we use a decorator, @app.get('/the_url') to associate the function with a URL
 # (2) we use a function to indicate what functionality we want
 
-@app.get('/hello')
-async def hello(name):
+@app.get('/hello/{name}')   # curly braces mean: capture this part of the URL, and turn into a function parameter
+async def hello(name):      # we'll get name defined based on the URL, thanks to FastAPI's assignment
     return {'message':f'Hello out there, {name}!'}
