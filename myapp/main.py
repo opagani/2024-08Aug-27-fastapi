@@ -53,16 +53,22 @@ async def greet_person(person:Person):
             'url_origin': '/greet_person'}
 
 
+class MathProblem(BaseModel):
+    operator:str
+    x:int
+    y:int
+
+
 @app.post('/newcalc')
-async def calc(operator:str, x:int, y:int):
-    if operator == '+':
-        result = x + y
-    elif operator == '*':
-        result = x * y
+async def calc(math_problem:MathProblem):
+    if math_problem.operator == '+':
+        result = math_problem.x + math_problem.y
+    elif math_problem.operator == '*':
+        result = math_problem.x * math_problem.y
     else:
         result = 'Unknown'
 
-    return {'operator':operator,
-            'x':x,
-            'y':y,
+    return {'operator':math_problem.operator,
+            'x':math_problem.x,
+            'y':math_problem.y,
             'result':result}
