@@ -76,7 +76,7 @@ async def calc(math_problem:MathProblem):
 @app.get('/piglatin/{word}')
 async def piglatin(word):
     if '.' in word:
-        raise HTTPException(status_code=500, detail='Word contains a . character; stopping'))
+        raise HTTPException(status_code=500, detail='Word contains a . character; stopping')
 
     if word[0].lower() in 'aeiou':
         output = word + 'way'
