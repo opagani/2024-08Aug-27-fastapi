@@ -71,3 +71,11 @@ async def calc(math_problem:MathProblem):
             'x':math_problem.x,
             'y':math_problem.y,
             'result':result}
+
+
+@app.get('/piglatin/{word}')
+async def piglatin(word):
+    if word[0].lower() in 'aeiou':
+        output = word + 'way'
+    else:
+        output = word[1:] + word[0] + 'ay'
