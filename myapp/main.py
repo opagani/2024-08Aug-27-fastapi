@@ -1,5 +1,5 @@
 # import the FastAPI class, to create a FastAPI app
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel, Field
 
 # create a new application instance
@@ -75,6 +75,9 @@ async def calc(math_problem:MathProblem):
 
 @app.get('/piglatin/{word}')
 async def piglatin(word):
+    if '.' in word:
+        raise HTTPException(status_code=500, detail='Word contains a . character; stopping'))
+
     if word[0].lower() in 'aeiou':
         output = word + 'way'
     else:
