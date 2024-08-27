@@ -4,5 +4,5 @@ from fastapi import FastAPI
 # create a new application instance
 app = FastAPI()
 
-def hello()
+def hello():
     return 'Hello'
