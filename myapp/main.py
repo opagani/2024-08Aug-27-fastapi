@@ -10,5 +10,5 @@ app = FastAPI()
 # (2) we use a function to indicate what functionality we want
 
 @app.get('/hello')
-def hello():
+async def hello():
     return {'message':'Hello out there!'}
