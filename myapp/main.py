@@ -11,4 +11,4 @@ app = FastAPI()
 
 @app.get('/hello/{name}')   # curly braces mean: capture this part of the URL, and turn into a function parameter
 async def hello():      # we'll get name defined based on the URL, thanks to FastAPI's assignment
-    return {'message':f'Hello out there, {name}!'}
+    return {'message':f'Hello out there, {5}!'}
