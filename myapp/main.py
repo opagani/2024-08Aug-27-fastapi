@@ -53,8 +53,8 @@ async def greet_person(person:Person):
             'url_origin': '/greet_person'}
 
 
-@app.get('/newcalc/{operator}')
-async def calc(operator, x:int|float, y:int|float):
+@app.post('/newcalc')
+async def calc(operator:str, x:int, y:int):
     if operator == '+':
         result = x + y
     elif operator == '*':
