@@ -8,3 +8,7 @@ app = FastAPI()
 # we do that in two parts:
 # (1) we use a decorator, @app.get('/the_url') to associate the function with a URL
 # (2) we use a function to indicate what functionality we want
+
+@app.get('/hello')
+def hello():
+    return 'Hello out there!'
