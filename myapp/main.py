@@ -51,3 +51,18 @@ async def greet_person(person:Person):
     return {'message': f'Hello, {person.first_name} {person.last_name}',
             'shoe_size': person.shoe_size,
             'url_origin': '/greet_person'}
+
+
+@app.get('/newcalc/{operator}')
+async def calc(operator, x:int|float, y:int|float):
+    if operator == '+':
+        result = x + y
+    elif operator == '*':
+        result = x * y
+    else:
+        result = 'Unknown'
+
+    return {'operator':operator,
+            'x':x,
+            'y':y,
+            'result':result}
