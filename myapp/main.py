@@ -19,3 +19,17 @@ async def hello(name, x=3, y=4):  # we have two query parameters, x and y
             'x':x,
             'y':y,
             'x+y':x+y}
+
+@app.get('/calc/{operator}')
+async def calc(operator, x, y):
+    if operator == '+':
+        result = int(x) + int(y)
+    elif operator == '*':
+        result = int(x) * int(y)
+    else:
+        result = 'Unknown'
+
+    return {'operator':operator,
+            'x':x,
+            'y':y,
+            'result':result}
