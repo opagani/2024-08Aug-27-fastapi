@@ -11,4 +11,4 @@ app = FastAPI()
 
 @app.get('/hello')
 def hello():
-    return 'Hello out there!'
+    return {'message':'Hello out there!'}
