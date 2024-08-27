@@ -21,7 +21,7 @@ async def hello(name, x:int=3, y:int=4):  # we have two query parameters, x and 
             'x+y':x+y}
 
 @app.get('/calc/{operator}')
-async def calc(operator, x:float, y:float):
+async def calc(operator, x:int|float, y:int|float):
     if operator == '+':
         result = x + y
     elif operator == '*':
