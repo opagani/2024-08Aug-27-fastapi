@@ -3,3 +3,6 @@ from fastapi import FastAPI
 
 # create a new application instance
 app = FastAPI()
+
+def hello():
+    return 'Hello'
