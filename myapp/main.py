@@ -1,7 +1,6 @@
 # import the FastAPI class, to create a FastAPI app
 from fastapi import FastAPI
-
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 
 # create a new application instance
 app = FastAPI()
