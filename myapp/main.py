@@ -1,6 +1,8 @@
 # import the FastAPI class, to create a FastAPI app
 from fastapi import FastAPI
 
+from pydantic import BaseModel
+
 # create a new application instance
 app = FastAPI()
 
@@ -39,7 +41,7 @@ async def calc(operator, x:int|float, y:int|float):
 async def lightswitch(state:bool):
     return {'new_state':state}
 
-class Person:
+class Person(BaseModel):
     first_name: str
     last_name: str
     shoe_size: int
