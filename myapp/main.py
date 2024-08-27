@@ -45,3 +45,9 @@ class Person(BaseModel):
     first_name: str
     last_name: str
     shoe_size: int
+
+@app.post('/greet_person')
+async def greet_person(person:Person):
+    return {'message': f'Hello, {person.first_name} {person.last_name}',
+            'shoe_size': person.shoe_size,
+            'url_origin': '/greet_person'}
