@@ -1,6 +1,7 @@
 # import the FastAPI class, to create a FastAPI app
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel, Field
+import aiosqlite
 
 # create a new application instance
 app = FastAPI()
@@ -85,3 +86,14 @@ async def piglatin(word):
 
     return {'word':word,
             'output':output}
+
+@app.get('/get_person/{person_id}')
+async def get_person(person_id:int):
+    async with aiosqlite.connect('apiapp.db') as db:
+        async with db.execute(f'SELECT * FROM People WHERE id = {person_id} LIMIT 1') as cursor:
+            async for one_row in cursor:
+                id_number, first_name, last_name, shoe_size = one_row  # unpacking to populate variables
+                return {'id':id_number,
+                        'first_name':first_name,
+                        'last_name':last_name,
+                        'shoe_size':shoe_size}
