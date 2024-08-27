@@ -79,3 +79,6 @@ async def piglatin(word):
         output = word + 'way'
     else:
         output = word[1:] + word[0] + 'ay'
+
+    return {'word':word,
+            'output':output}
